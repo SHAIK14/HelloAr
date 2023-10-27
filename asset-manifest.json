@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HelloAr/static/css/main.55427513.css",
+    "main.js": "/HelloAr/static/js/main.e6a1bd99.js",
+    "index.html": "/HelloAr/index.html",
+    "main.55427513.css.map": "/HelloAr/static/css/main.55427513.css.map",
+    "main.e6a1bd99.js.map": "/HelloAr/static/js/main.e6a1bd99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55427513.css",
+    "static/js/main.e6a1bd99.js"
+  ]
+}

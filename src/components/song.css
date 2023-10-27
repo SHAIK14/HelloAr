@@ -80,6 +80,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .headform {
   color: var(--character-title-85, rgba(0, 0, 0, 0.85));
 
@@ -99,6 +100,7 @@
   border: 1px solid var(--neutral-5, #d9d9d9);
   background: var(--neutral-1, #fff);
   font-family: Roboto;
+  width: 400px;
 }
 .inputfile {
   display: flex;
@@ -110,6 +112,7 @@
   border: 1px solid var(--neutral-5, #d9d9d9);
   background: var(--neutral-1, #fff);
   font-family: Roboto;
+  width: 400px;
 }
 .btnadd {
   border-radius: 2px;
@@ -148,6 +151,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  width: 400px;
 }
 .inputsource {
   display: flex;
@@ -175,4 +179,34 @@ label {
   font-weight: 400;
   gap: 5px;
   margin-bottom: 5px;
+}
+.fixed-thumbnail {
+  width: 60px;
+  height: 60px;
+  /* You can add additional styling as needed */
+}
+.sidebyside {
+  display: flex;
+  align-items: center;
+}
+.custom-thumbnail-style {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 4px;
+}
+.navbtns {
+  display: flex;
+  gap: 10px;
+}
+.logoutbtn {
+  display: flex;
+  padding: 10px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: none;
+  background: #fdb927;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
 }

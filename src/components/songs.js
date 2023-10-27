@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./song.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function MusicApp() {
   const [songs, setSongs] = useState([]);
@@ -8,6 +9,7 @@ function MusicApp() {
   const [source, setSource] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
   const playButtonSVG = `
     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
       <path d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM15 29V11L29 20L15 29Z" fill="#FDB927"/>
@@ -75,36 +77,45 @@ function MusicApp() {
     audioRef.current.src = songs[index].audioFile;
     audioRef.current.play();
   };
-
+  const handleLogout = () => {
+    navigate("/");
+  };
   return (
     <div className="music-app">
       <nav className="navigation">
         <h1 className="songs">Songs</h1>
-        <button
-          className="addsongsbtn"
-          onClick={() => setShowAddSongForm(true)}
-        >
-          Add Song
-        </button>
+        <div className="navbtns">
+          <button
+            className="addsongsbtn"
+            onClick={() => setShowAddSongForm(true)}
+          >
+            Add Song
+          </button>
+          <button className="logoutbtn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </nav>
 
       <div className="song-list">
         {songs.map((song, index) => (
           <div key={index} className="song-item">
             <div className="song-info">
-              <p className="song-title">{song.title}</p>
+              <div className="sidebyside">
+                {song.thumbnail && (
+                  <img
+                    src={song.thumbnail}
+                    alt={`Thumbnail for ${song.title}`}
+                    className="song-thumbnail custom-thumbnail-style"
+                  />
+                )}
+                <p className="song-title">{song.title}</p>{" "}
+              </div>
               <p className="song-source">{song.source}</p>
               <button onClick={() => handlePlaySong(index)}>
                 <div dangerouslySetInnerHTML={{ __html: playButtonSVG }} />
               </button>
             </div>
-            {song.thumbnail && (
-              <img
-                src={song.thumbnail}
-                alt={`Thumbnail for ${song.title}`}
-                className="song-thumbnail"
-              />
-            )}
           </div>
         ))}
       </div>
@@ -161,8 +172,8 @@ function MusicApp() {
           {thumbnail && (
             <img
               src={thumbnail}
-              alt="Thumbnail Preview"
-              className="thumbnail-preview"
+              alt={`Thumbnail for ${songs.title}`}
+              className="song-thumbnail fixed-thumbnail"
             />
           )}
 

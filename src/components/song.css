@@ -188,10 +188,11 @@ label {
 .sidebyside {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 .custom-thumbnail-style {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
 
   border-radius: 4px;
 }
@@ -209,4 +210,39 @@ label {
   border: none;
   background: #fdb927;
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+}
+.song-info {
+  display: flex;
+  justify-content: space-between;
+}
+.songname {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 157.143% */
+  text-transform: uppercase;
+}
+.songsource {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+.playsong {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+.horizontal-line {
+  border-top: 2px solid #fdb927; /* You can adjust the color and thickness as needed */
+  margin: 20px 0; /* You can adjust the margin to control the space above and below the line */
 }

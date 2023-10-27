@@ -15,7 +15,20 @@ function MusicApp() {
       <path d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM15 29V11L29 20L15 29Z" fill="#FDB927"/>
     </svg>
   `;
-
+  const deletesvg = `
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+    >
+      <path
+        d="M4.62476 1.87357H4.49976C4.56851 1.87357 4.62476 1.81732 4.62476 1.74857V1.87357H9.37476V1.74857C9.37476 1.81732 9.43101 1.87357 9.49976 1.87357H9.37476V2.99857H10.4998V1.74857C10.4998 1.197 10.0513 0.748566 9.49976 0.748566H4.49976C3.94819 0.748566 3.49976 1.197 3.49976 1.74857V2.99857H4.62476V1.87357ZM12.4998 2.99857H1.49976C1.22319 2.99857 0.999756 3.222 0.999756 3.49857V3.99857C0.999756 4.06732 1.05601 4.12357 1.12476 4.12357H2.06851L2.45444 12.2954C2.47944 12.8283 2.92007 13.2486 3.45288 13.2486H10.5466C11.081 13.2486 11.5201 12.8298 11.5451 12.2954L11.931 4.12357H12.8748C12.9435 4.12357 12.9998 4.06732 12.9998 3.99857V3.49857C12.9998 3.222 12.7763 2.99857 12.4998 2.99857ZM10.4263 12.1236H3.57319L3.19507 4.12357H10.8044L10.4263 12.1236Z"
+        fill="black"
+        fill-opacity="0.45"
+      />
+    </svg> `;
   const audioRef = useRef(null);
   const [showAddSongForm, setShowAddSongForm] = useState(false);
 
@@ -80,6 +93,12 @@ function MusicApp() {
   const handleLogout = () => {
     navigate("/");
   };
+  const handleDeleteSong = (index) => {
+    const updatedSongs = [...songs];
+    updatedSongs.splice(index, 1);
+    setSongs(updatedSongs);
+  };
+
   return (
     <div className="music-app">
       <nav className="navigation">
@@ -96,6 +115,16 @@ function MusicApp() {
           </button>
         </div>
       </nav>
+
+      <div className="default-song-info">
+        <div className="song-info">
+          <p className="songname">SongName</p>
+
+          <p className="songsource">Source</p>
+          <p className="playsong">playsong</p>
+        </div>
+      </div>
+      <div className="horizontal-line"></div>
 
       <div className="song-list">
         {songs.map((song, index) => (
@@ -114,6 +143,9 @@ function MusicApp() {
               <p className="song-source">{song.source}</p>
               <button onClick={() => handlePlaySong(index)}>
                 <div dangerouslySetInnerHTML={{ __html: playButtonSVG }} />
+              </button>
+              <button onClick={() => handleDeleteSong(index)}>
+                <div dangerouslySetInnerHTML={{ __html: deletesvg }} />
               </button>
             </div>
           </div>

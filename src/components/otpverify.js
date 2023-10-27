@@ -18,11 +18,10 @@ const OTPVerify = () => {
     });
     setOTP(updatedOTP);
   };
-
   const handleOTPChange = (e, index) => {
     const value = e.target.value;
 
-    if (!isNaN(value) && value !== "") {
+    if (value.length <= 1) {
       const updatedOTP = [...otp];
       updatedOTP[index] = value;
       setOTP(updatedOTP);
@@ -32,6 +31,19 @@ const OTPVerify = () => {
       }
     }
   };
+  // const handleOTPChange = (e, index) => {
+  //   const value = e.target.value;
+
+  //   if (!isNaN(value) && value !== "") {
+  //     const updatedOTP = [...otp];
+  //     updatedOTP[index] = value;
+  //     setOTP(updatedOTP);
+
+  //     if (index < otpInputRefs.length - 1) {
+  //       otpInputRefs[index + 1].focus();
+  //     }
+  //   }
+  // };
 
   const handleVerifyOTP = () => {
     const isOTPVerified = otp.join("") === "5678";
@@ -72,6 +84,7 @@ const OTPVerify = () => {
             onChange={(e) => handleOTPChange(e, index)}
             onPaste={handleOTPPaste}
             ref={(input) => (otpInputRefs[index] = input)}
+            maxLength="1"
           />
         ))}
       </div>

@@ -38,7 +38,7 @@ const Login = () => {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 value={phoneNumber}
               >
-                <option value="">Select Country Code</option>
+                <option value="">Country Code</option>
                 <option value="+91">IND (+91)</option>
                 <option value="+1">USA (+1)</option>
                 <option value="+44">UK (+44)</option>

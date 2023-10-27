@@ -71,6 +71,7 @@ function MusicApp() {
 
   const handlePlaySong = (index) => {
     setCurrentIndex(index);
+    console.log(currentIndex);
     audioRef.current.src = songs[index].audioFile;
     audioRef.current.play();
   };

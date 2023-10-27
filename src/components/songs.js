@@ -121,7 +121,8 @@ function MusicApp() {
           <p className="songname">SongName</p>
 
           <p className="songsource">Source</p>
-          <p className="playsong">playsong</p>
+          <p className="playsong">Playsong</p>
+          <p className="playsong">Delete song</p>
         </div>
       </div>
       <div className="horizontal-line"></div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./song.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MusicApp() {
   const [songs, setSongs] = useState([]);

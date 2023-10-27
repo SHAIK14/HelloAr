@@ -1,0 +1,62 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 280px;
+
+  flex-direction: column;
+  gap: 15px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.headings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.headsignin {
+  color: var(--Primary-Color, #552583);
+  font-family: Roboto;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.parasignin {
+  color: var(--text-primary, #101920);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  max-width: 400px;
+}
+.intrnum {
+  display: flex;
+  gap: 10px;
+}
+.btnNum {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.inputsignin {
+  border-radius: 2px;
+  border: 1px solid #e4e8f0;
+  padding: 10px;
+  font-family: Roboto;
+}
+.btnsignin {
+  border-radius: 12px;
+  background: var(--Primary-Color, #552583);
+  color: white;
+  padding: 10px;
+  font-family: Roboto;
+}

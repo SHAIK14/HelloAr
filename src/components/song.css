@@ -1,0 +1,178 @@
+.music-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  padding: 30px 0;
+}
+
+.songs {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+}
+
+.addsongsbtn {
+  display: flex;
+  padding: 10px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: none;
+  background: #fdb927;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+}
+
+.song-list-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-list {
+  position: relative;
+  z-index: 1;
+}
+
+.pagination {
+  text-align: center;
+  padding: 10px;
+}
+
+.audio-player {
+  margin-top: 20px;
+
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.add-song-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  width: 500px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.headform {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+.inputtitle {
+  display: flex;
+  padding: 12px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 2px;
+  border: 1px solid var(--neutral-5, #d9d9d9);
+  background: var(--neutral-1, #fff);
+  font-family: Roboto;
+}
+.inputfile {
+  display: flex;
+  padding: 12px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 2px;
+  border: 1px solid var(--neutral-5, #d9d9d9);
+  background: var(--neutral-1, #fff);
+  font-family: Roboto;
+}
+.btnadd {
+  border-radius: 2px;
+  background: var(--daybreak-blue-6, #1890ff);
+  color: white;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+  padding: 10px 16px;
+  border: none;
+}
+
+.song-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.song-title {
+  margin: 0;
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.default-container {
+  display: flex;
+  gap: 200px;
+}
+.inputsource {
+  margin: 0;
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.inputsource {
+  display: flex;
+  padding: 12px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 2px;
+  border: 1px solid var(--neutral-5, #d9d9d9);
+  background: var(--neutral-1, #fff);
+  font-family: Roboto;
+}
+.song-source {
+  margin: 0;
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+label {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  margin-bottom: 5px;
+}

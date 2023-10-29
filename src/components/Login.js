@@ -2,16 +2,28 @@ import React, { useState } from "react";
 import { sendOTPRequest } from "../Authentication/Auth";
 import OTPVerify from "./otpverify";
 import { useNavigate } from "react-router-dom";
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "./login.css";
+
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const navigate = useNavigate();
 
+  const formatPhoneNumber = (phoneNumber) => {
+    const numericPhoneNumber = phoneNumber.replace(/\D/g, "");
+
+    return `+${numericPhoneNumber}`;
+  };
+
   const handleSendOtp = async () => {
     try {
-      await sendOTPRequest(phoneNumber);
+      // Format the phone number
+      const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
+      console.log("Formatted Phone Number: ", formattedPhoneNumber);
+
+      await sendOTPRequest(formattedPhoneNumber);
       setOtpSent(true);
       navigate("/otpverify");
     } catch (error) {
@@ -34,21 +46,13 @@ const Login = () => {
         ) : (
           <div className="btnNum">
             <div className="intrnum">
-              <select
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                value={phoneNumber}
-              >
-                <option value="">Country Code</option>
-                <option value="+91">IND (+91)</option>
-                <option value="+1">USA (+1)</option>
-                <option value="+44">UK (+44)</option>
-              </select>
-              <input
-                type="tel"
+              <PhoneInput
+                country={"in"}
                 placeholder="Enter Phone Number"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                className="inputsignin"
+                onChange={(value) => setPhoneNumber(value)}
+                inputProps={{ required: true }}
+                // className="inputsignin"
               />
             </div>
             <button onClick={handleSendOtp} className="btnsignin">

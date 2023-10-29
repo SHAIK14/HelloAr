@@ -53,7 +53,9 @@
 
 .audio-player {
   margin-top: 20px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   text-align: center;
   position: fixed;
@@ -183,7 +185,6 @@ label {
 .fixed-thumbnail {
   width: 60px;
   height: 60px;
-  /* You can add additional styling as needed */
 }
 .sidebyside {
   display: flex;
@@ -245,4 +246,8 @@ label {
 .horizontal-line {
   border-top: 2px solid #fdb927;
   margin: 20px 0;
+}
+.formtop {
+  display: flex;
+  justify-content: space-between;
 }

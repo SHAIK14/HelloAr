@@ -29,6 +29,27 @@ function MusicApp() {
         fill-opacity="0.45"
       />
     </svg> `;
+  const formclose = `
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="12"
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <path
+        d="M8.92473 7.99919L13.6122 2.41169C13.6908 2.31884 13.6247 2.17776 13.5033 2.17776H12.0783C11.9944 2.17776 11.914 2.21526 11.8587 2.27955L7.99259 6.88848L4.12652 2.27955C4.07295 2.21526 3.99259 2.17776 3.90688 2.17776H2.48188C2.36045 2.17776 2.29437 2.31884 2.37295 2.41169L7.06045 7.99919L2.37295 13.5867C2.35535 13.6074 2.34405 13.6327 2.34041 13.6596C2.33677 13.6866 2.34093 13.714 2.3524 13.7386C2.36387 13.7632 2.38216 13.784 2.40511 13.7986C2.42806 13.8131 2.45471 13.8208 2.48188 13.8206H3.90688C3.9908 13.8206 4.07116 13.7831 4.12652 13.7188L7.99259 9.10991L11.8587 13.7188C11.9122 13.7831 11.9926 13.8206 12.0783 13.8206H13.5033C13.6247 13.8206 13.6908 13.6796 13.6122 13.5867L8.92473 7.99919Z"
+        fill="black"
+        fill-opacity="0.45"
+      />
+    </svg>
+  `;
+  const previous = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+  <path d="M3.00088 18.3821V3.14978M19.6676 17.6897V3.84215L9.94535 10.7659L19.6676 17.6897Z" stroke="black" stroke-width="2.08334" stroke-linejoin="round"/>
+</svg>`;
+  const forward = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+  <path d="M18.7929 3.14978V18.3821M2.12622 3.84216V17.6897L11.8485 10.7659L2.12622 3.84216Z" stroke="black" stroke-width="2.08334" stroke-linejoin="round"/>
+</svg>`;
   const audioRef = useRef(null);
   const [showAddSongForm, setShowAddSongForm] = useState(false);
 
@@ -93,6 +114,20 @@ function MusicApp() {
   const handleLogout = () => {
     navigate("/");
   };
+  const handlePreviousSong = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      audioRef.current.src = songs[currentIndex - 1].audioFile;
+      audioRef.current.play();
+    }
+  };
+  const handleForwardSong = () => {
+    if (currentIndex < songs.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      audioRef.current.src = songs[currentIndex + 1].audioFile;
+      audioRef.current.play();
+    }
+  };
   const handleDeleteSong = (index) => {
     const updatedSongs = [...songs];
     updatedSongs.splice(index, 1);
@@ -155,7 +190,12 @@ function MusicApp() {
 
       {showAddSongForm && (
         <div className="add-song-form">
-          <h1 className="headform">Add Song</h1>
+          <div className="formtop">
+            <h1 className="headform">Add Song</h1>
+            <button onClick={() => setShowAddSongForm(false)}>
+              <div dangerouslySetInnerHTML={{ __html: formclose }} />
+            </button>
+          </div>
           <div>
             <label htmlFor="titleInput">Song Title:</label>
             <input
@@ -217,7 +257,15 @@ function MusicApp() {
       )}
 
       <div className="audio-player">
+        <button onClick={handlePreviousSong}>
+          {" "}
+          <div dangerouslySetInnerHTML={{ __html: previous }} />
+        </button>
         <audio ref={audioRef} controls />
+        <button onClick={handleForwardSong}>
+          {" "}
+          <div dangerouslySetInnerHTML={{ __html: forward }} />
+        </button>
       </div>
     </div>
   );
